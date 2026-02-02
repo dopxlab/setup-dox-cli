@@ -1,0 +1,16 @@
+name: "Setup DOX CLI"
+description: "Install and configure DOX CLI for GitHub Actions workflows"
+author: "DopxLab"
+
+branding:
+  icon: "terminal"
+  color: "gray-dark"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install DOX CLI
+      shell: bash
+      run: |
+        curl -fsSL https://raw.githubusercontent.com/dopxlab/dox-cli/main/install.sh | bash
+        echo "BASH_ENV=$HOME/.dox/bin/dox-wrapper" >> $GITHUB_ENV
